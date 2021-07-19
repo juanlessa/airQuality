@@ -2,6 +2,7 @@ package pt.ua.airquality.service;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
 import pt.ua.airquality.model.Weather;
@@ -14,11 +15,8 @@ import java.math.BigDecimal;
 public class WeatherService {
     private String key = "712f67fa4147409696fc8a0cbc33e9e0";
 
+    @Autowired
     private CacheService cache;
-
-    public WeatherService() {
-        cache = CacheService.getInstance();
-    }
 
     public Weather getWeather(String cityName) {
 

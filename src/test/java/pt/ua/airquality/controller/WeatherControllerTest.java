@@ -31,7 +31,6 @@ public class WeatherControllerTest {
     @MockBean
     private CacheService cacheService;
 
-
     @Test
     public void testValidShouldReturnWeather() throws Exception {
         Weather validWeather = new Weather();

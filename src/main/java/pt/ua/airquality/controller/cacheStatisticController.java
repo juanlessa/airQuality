@@ -1,6 +1,7 @@
 package pt.ua.airquality.controller;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,9 @@ import pt.ua.airquality.service.CacheService;
 
 @RestController
 public class cacheStatisticController {
-    private CacheService cacheService;
 
-    public cacheStatisticController(){
-         cacheService = CacheService.getInstance();
-    }
+    @Autowired
+    private CacheService cacheService;
 
     @GetMapping("/cache")
     public ResponseEntity<String> getCacheStatistics() {

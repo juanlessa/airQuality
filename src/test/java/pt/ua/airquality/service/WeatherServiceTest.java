@@ -15,7 +15,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class WeatherServiceTest {
-    private Weather validResponse;
 
     @Mock(lenient = true)
     private CacheService cacheService;
@@ -26,7 +25,7 @@ public class WeatherServiceTest {
 
     @BeforeEach
     void setUp() {
-        validResponse = new Weather();
+        Weather validResponse = new Weather();
         validResponse.setAqi(new BigDecimal(2));
         validResponse.setPm10(new BigDecimal(25.005));
         validResponse.setCo(new BigDecimal(25.005));

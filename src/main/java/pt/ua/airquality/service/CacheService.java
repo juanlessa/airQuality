@@ -16,32 +16,16 @@ public class CacheService {
 
     private PassiveExpiringMap<String, Weather> cache;
 
-    public static CacheService getInstance() {
-        if (cacheService == null) {
-            cacheService = new CacheService();
-        }
-        return cacheService;
-    }
 
-    public static void clearCache() {
-        cacheService = null;
-    }
-
-    public static CacheService getInstance(long timeout) {
-        if (cacheService == null) {
-            cacheService = new CacheService(timeout);
-        }
-        return cacheService;
-    }
 
     // set map timeout
-    private CacheService(long timeout) {
+    public CacheService(long timeout) {
         cache = new PassiveExpiringMap<>(timeout);
         cacheStatistic = new CacheStatistic();
     }
 
     // default timeout
-    private CacheService() {
+    public CacheService() {
         cache = new PassiveExpiringMap<>((long) 300000); // 5 minutes
         cacheStatistic = new CacheStatistic();
 
