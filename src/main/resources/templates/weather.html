@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous"
+  />
+
+  <title>Air Quality</title>
+</head>
+<body>
+
+  <div th:insert="index :: header">
+  </div>
+
+
+  <div style="max-width:540px; margin:0 auto;">
+    <table class="table table-striped">
+      <tbody>
+      <tr>
+        <td>Nome</td>
+        <td th:text="${weather.getCityName()}"></td>
+      </tr>
+      <tr>
+        <td>Aqi</td>
+        <td th:text="${weather.getAqi()}"></td>
+      </tr>
+      <tr>
+        <td>Co</td>
+        <td th:text="${weather.getCo()}"></td>
+      </tr>
+      <tr>
+        <td>No2</td>
+        <td th:text="${weather.getNo2()}"></td>
+      </tr>
+      <tr>
+        <td>O3</td>
+        <td th:text="${weather.getO3()}"></td>
+      </tr>
+      <tr>
+        <td>Pm10</td>
+        <td th:text="${weather.getPm10()}"></td>
+      </tr>
+      <tr>
+        <td>Pm25</td>
+        <td th:text="${weather.getPm25()}"></td>
+      </tr>
+      <tr>
+        <td>So2</td>
+        <td th:text="${weather.getSo2()}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

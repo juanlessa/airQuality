@@ -14,20 +14,10 @@ import java.math.BigDecimal;
 public class WeatherService {
     private String key = "712f67fa4147409696fc8a0cbc33e9e0";
 
-
-    UriComponentsBuilder uriBuilder;
-
     private CacheService cache;
 
     public WeatherService() {
         cache = CacheService.getInstance();
-
-        uriBuilder = UriComponentsBuilder.newInstance()
-                .scheme("http")
-                .host("api.weatherbit.io")
-                .path("v2.0/current/airquality")
-                .queryParam("key", key)
-                .queryParam("country", "BR");
     }
 
     public Weather getWeather(String cityName) {
@@ -39,7 +29,12 @@ public class WeatherService {
         }
 
         //build url
-        String url = uriBuilder
+        String url = UriComponentsBuilder.newInstance()
+                .scheme("http")
+                .host("api.weatherbit.io")
+                .path("v2.0/current/airquality")
+                .queryParam("key", key)
+                .queryParam("country", "BR")
                 .queryParam("city", cityName)
                 .build()
                 .toString();
@@ -47,6 +42,9 @@ public class WeatherService {
         // get weather from API
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseData = restTemplate.getForEntity(url, String.class);
+
+        System.out.println(responseData);
+        System.out.println(responseData.getStatusCode());
 
         // invalid response
         if (responseData.getStatusCode().value() != 200) {
