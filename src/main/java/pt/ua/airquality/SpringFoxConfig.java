@@ -19,7 +19,7 @@ public class SpringFoxConfig {
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
-        
+
     }
 
     private ApiInfo apiInfo() {
