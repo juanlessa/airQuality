@@ -137,7 +137,7 @@
                         <phase>integration-test</phase>
                         <configuration>
                             <excludes>
-                                <exclude>name</exclude>
+                                <exclude>**/Selenium*Test.java</exclude>
                             </excludes>
                             <includes>
                                 <exclude>**/*Test.java</exclude>
